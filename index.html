@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Into Dance — Digital Learning Package for Stage 2 Teachers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Studio Notebook palette */
+            --ink: #222;
+            --cream: #FAF7F0;
+            --sun: #FFD93D;
+            --coral: #FF6B6B;
+            --teal: #3BABA5;
+            --rose: #FFB4B4;
+            --mint: #B8E6D5;
+            --lilac: #C5A3D9;
+            --cream2: #F5F1E8;
+            --hair: #E0DDD5;
+            
+            /* Typography */
+            --serif: 'Instrument Serif', serif;
+            --sans: 'Inter', sans-serif;
+            --mono: 'ui-monospace', 'Courier New', monospace;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--sans);
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--cream) url('https://i.imgur.com/subtle-texture.png') repeat;
+        }
+        
+        /* Dark header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--ink);
+            color: #fff;
+            padding: 12px 28px;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-style: italic;
+            color: var(--sun);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,.55);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--sun);
+            font-weight: 700;
+        }
+        
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+        
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--serif);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; margin-bottom: 2rem; }
+        h3 { font-size: 2rem; margin-bottom: 1rem; }
+        h4 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        
+        h3, h4 {
+            font-weight: 700; 
+        }
+        
+        .italic-accent {
+            font-style: italic;
+            color: var(--coral);
+        }
+        
+        .caption {
+            font-family: var(--mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        p {
+            line-height: 1.8;  
+        }
+        
+        /* Rotated cards for kinetic feel */
+        .rotate-n1 { transform: rotate(-1deg); }
+        .rotate-p1 { transform: rotate(1deg); }
+        .rotate-n2 { transform: rotate(-2deg); }
+        .rotate-p2 { transform: rotate(2deg); }
+        
+        /* Hero sections */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            line-height: 0.9;
+            letter-spacing: -1.2px;
+        }
+        
+        .hero .rotate-accent {
+            display: inline-block;
+            transform: rotate(-2deg);
+        }
+        
+        /* DLO Tags */
+        .dlo-tag {
+            display: inline-block;
+            background: var(--ink);
+            color: #fff;
+            padding: 4px 10px;
+            font-family: var(--mono);
+            font-size: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dlo-tag.sun { background: var(--sun); color: var(--ink); }
+        .dlo-tag.coral { background: var(--coral); }
+        .dlo-tag.teal { background: var(--teal); }
+        
+        /* Asymmetric card grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: #fff;
+            border: 1px solid var(--hair);
+            padding: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .card.h-130 { min-height: 130px; }
+        .card.h-170 { min-height: 170px; }
+        .card.h-140 { min-height: 140px; }
+        
+        .card-accent {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        
+        /* Color blocks */
+        .bg-sun { background: var(--sun); color: var(--ink); }
+        .bg-coral { background: var(--coral); color: #fff; }
+        .bg-teal { background: var(--teal); color: #fff; }
+        .bg-rose { background: var(--rose); color: var(--ink); }
+        .bg-mint { background: var(--mint); color: var(--ink); }
+        .bg-lilac { background: var(--lilac); color: #fff; }
+        .bg-ink { background: var(--ink); color: #fff; }
+        .bg-cream2 { background: var(--cream2); }
+        
+        /* Accordion */
+        .accordion {
+            margin: 2rem 0;
+        }
+        
+        .accordion-item {
+            background: #fff;
+            border: 1px solid var(--hair);
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--cream2);
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background: var(--sun);
+        }
+        
+        .accordion-icon {
+            font-size: 18px;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+        
+        .accordion-body {
+            padding: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Quiz - Complete rebuild with Studio aesthetic */
+        .quiz-container {
+            background: #fff;
+            border: 1.5px solid var(--ink);
+            padding: 28px;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .quiz-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coral), var(--sun), var(--teal));
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--hair);
+        }
+        
+        .quiz-header h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-style: italic;
+            color: var(--ink);
+        }
+        
+        .quiz-progress {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: var(--ink);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .quiz-question {
+            background: var(--cream2);
+            padding: 20px;
+            margin-bottom: 2rem;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-option {
+            padding: 20px;
+            border: 2px solid var(--hair);
+            background: #fff;
+            cursor: pointer;
+            text-align: center;
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover:not(.selected):not(.correct):not(.incorrect) {
+            border-color: var(--ink);
+            transform: translateY(-3px);
+        }
+        
+        .quiz-option.selected {
+            background: var(--teal);
+            color: #fff;
+            border-color: var(--teal);
+        }
+        
+        .quiz-option.correct {
+            background: #4CAF50;
+            color: #fff;
+            border-color: #4CAF50;
+            animation: pulse 0.5s ease;
+        }
+        
+        .quiz-option.correct::after {
+            content: ' ✓';
+        }
+        
+        .quiz-option.incorrect {
+            background: var(--coral);
+            color: #fff;
+            border-color: var(--coral);
+            animation: shake 0.5s;
+        }
+        
+        .quiz-option.incorrect::after {
+            content: ' ✗';
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+        
+        /* Celebration background */
+        .quiz-container.celebrating::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            opacity: 0.2;
+            animation: celebrate 0.6s ease-in-out;
+            pointer-events: none;
+        }
+        
+        @keyframes celebrate {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { opacity: 0.4; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+        }
+        
+        .quiz-feedback {
+            padding: 16px;
+            margin-top: 1rem;
+            border-left: 4px solid;
+            font-weight: 500;
+        }
+        
+        .quiz-feedback.correct {
+            background: #E8F5E9;
+            color: #2E7D32;
+            border-color: #4CAF50;
+        }
+        
+        .quiz-feedback.incorrect {
+            background: #FFEBEE;
+            color: #C62828;
+            border-color: var(--coral);
+        }
+        
+        .quiz-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .quiz-btn {
+            padding: 12px 24px;
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+        
+        .quiz-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .quiz-btn-next {
+            background: var(--ink);
+            color: var(--sun);
+        }
+        
+        .quiz-btn-prev {
+            background: #fff;
+            color: var(--ink);
+            border: 2px solid var(--ink);
+        }
+        
+        .quiz-btn-restart {
+            background: var(--coral);
+            color: #fff;
+        }
+        
+        .quiz-complete {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .quiz-complete h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-score {
+            font-family: var(--serif);
+            font-size: 5rem;
+            font-style: italic;
+            color: var(--coral);
+            margin: 1rem 0;
+        }
+        
+        /* Callout boxes */
+        .callout {
+            padding: 16px;
+            margin: 2rem 0;
+            border: 1px solid var(--hair);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .callout.sun { background: var(--sun); }
+        .callout.rose { background: var(--rose); }
+        
+        /* Placeholder blocks */
+        .placeholder {
+            background: linear-gradient(135deg, var(--cream2), var(--hair));
+            border: 2px dashed var(--hair);
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: #999;
+        }
+        
+        /* Video embed */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border: 2px solid var(--ink);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Subsection styling for Inclusion */
+        .subsection {
+            margin: 3rem 0;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid var(--hair);
+        }
+        
+        .subsection h4 {
+            border-bottom: 2px solid var(--coral);
+            padding-bottom: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .subsection-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--cream2), var(--sun));
+            border: 2px dashed var(--hair);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: #999;
+        }
+        
+        .subsection-image::after {
+            content: '📷 Image Placeholder';
+        }
+        
+        /* Step cards for Culture section */
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 2rem 0;
+        }
+        
+        .step-card {
+            padding: 20px;
+            border: 1px solid var(--hair);
+            background: #fff;
+        }
+        
+        .step-card h5 {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--coral);
+        }
+        
+        .step-number {
+            font-family: var(--serif);
+            font-size: 34px;
+            font-style: italic;
+            color: var(--coral);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Resource cards */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 2rem 0;
+        }
+        
+        .resource-card {
+            background: #fff;
+            border: 2px solid var(--teal);
+            padding: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .resource-card h5 {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--teal);
+        }
+        
+        .resource-card a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* References */
+        .references {
+            background: #fff;
+            border: 1px solid var(--hair);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .reference-item {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            text-indent: -2rem;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        
+        .reference-item a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+        
+        .reference-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 12px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--ink);
+            color: var(--sun);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--coral);
+            color: #fff;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 10px;
+                font-size: 8px;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">Step Into Dance</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">01·HOME</a></li>
+                <li><a href="#curriculum">02·CURRICULUM</a></li>
+                <li><a href="#research">03·RESEARCH</a></li>
+                <li><a href="#inclusion">04·INCLUSION</a></li>
+                <li><a href="#culture">05·CULTURE</a></li>
+                <li><a href="#references">06·REFERENCES</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="hero">
+            <span class="caption">welcome</span>
+            <h1>
+                <span class="rotate-accent">Breathe.</span><br>
+                <span class="italic-accent">Then move.</span>
+            </h1>
+            <p style="max-width: 600px; margin: 2rem auto; font-size: 17px; line-height: 1.7;">
+                <b>You don't need to be a dancer to teach dance.</b><br> 
+                This is a digital learning package for Stage 2
+                teachers in NSW. Built to help minimise your dance anxiety, not around a professional dancer's expertise.
+            </p>
+            <a href="#curriculum" class="btn btn-primary">Lets start with the Curriculum →</a>
+        </section>
+
+        <!-- CURRICULUM SECTION -->
+        <section id="curriculum">
+            <figure style="margin: 0 0 3rem 0; text-align: center;">
+    <img 
+        src="https://www.songroom.org.au/wp-content/uploads/2021/07/song-rooms-pps-27-nov-2020-136-WEB-ONLY-e1630978851473.jpg" 
+        alt="Students participating in a creative movement workshop" 
+        style="width: 100%; max-width: 1280px; height: auto; display: block; border-radius: 8px; margin: 0 auto;"
+    >
+    <figcaption style="margin-top: 0.75rem; font-size: 0.6rem; color: #555; font-style: italic;">
+        Students exploring movement, space, and creativity. Image source: 
+        <a href="https://www.songroom.org.au/" target="_blank" style="color: #0073e6; text-decoration: none;">
+            The Song Room
+        </a>
+    </figcaption>
+</figure>
+
+            <span class="caption">02 · curriculum building blocks</span>
+            <h2>Space. Time.<br><span class="italic-accent">Dynamics.</span></h2>
+            <p style="font-size: 17px; max-width: 700px; margin-bottom: 2rem;">
+                <b>You don't need choreography. <i>You just need the elements!</i></b> 
+                <br>Tap any card to expand and explore.
+            </p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>SPACE · levels, dimension, direction</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 0.5rem 0;"><strong>Levels:</strong> low, middle, high</li>
+                                <li style="margin: 0.5rem 0;"><strong>Dimension:</strong> big movement, small movement, tall, quiet</li>
+                                <li style="margin: 0.5rem 0;"><strong>Shape:</strong> straight, smooth, rounded, angled, symmetrical, asymmetrical</li>
+                                <li style="margin: 0.5rem 0;"><strong>Direction:</strong> forward, backwards, sideways, diagonal</li>
+                                <li style="margin: 0.5rem 0;"><strong>Personal space:</strong> the space each person needs to complete movements</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>TIME · tempo & rhythm</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 0.5rem 0;"><strong>Metre:</strong> time signature (4/4 standard 8 counts, 3/4 waltz)</li>
+                                <li style="margin: 0.5rem 0;"><strong>Tempo:</strong> speed of movement (slow, fast, accelerating, decelerating)</li>
+                                <li style="margin: 0.5rem 0;"><strong>Rhythm:</strong> patterns of movement</li>
+                                <li style="margin: 0.5rem 0;"><strong>Phrasing:</strong> organisation/grouping of movement</li>
+                                <li style="margin: 0.5rem 0;"><strong>Accents:</strong> emphasis on a particular movement</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>DYNAMICS · explosive vs sustained</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 0.5rem 0;"><strong>Weight/force:</strong> how body weight is used to develop movement quality</li>
+                                <li style="margin: 0.5rem 0;"><strong>Energy/explosion:</strong> the lead-up and strong release of energy</li>
+                                <li style="margin: 0.5rem 0;"><strong>Quality:</strong> how well movement is developed or sustained</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>MOVEMENT · the physical act</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Movement is the foundation - the act of the body in motion. All other elements describe how, where, and when that movement happens.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>STRUCTURES · Narrative, Repetition, Variation, motif</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 0.5rem 0;"><strong>Narrative:</strong> beginning, middle, end (ABC structure)</li>
+                                <li style="margin: 0.5rem 0;"><strong>Repetition:</strong> repeated portions (ABA, ABACA)</li>
+                                <li style="margin: 0.5rem 0;"><strong>Variation:</strong> similar movements with changes</li>
+                                <li style="margin: 0.5rem 0;"><strong>Motif:</strong> a main phrase shown with variations</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>FORMS · ideas & entry points</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Visual, auditory, ideational stimuli · Exploration and improvisation</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>RELATIONSHIPS · solo, pair, group, unison</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin: 0.5rem 0;">Students might visualise a story or character</li>
+                                <li style="margin: 0.5rem 0;">They may hear specific parts and associate movement</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 3rem 0; border-top: 1px solid #eee; padding-top: 2rem;">
+                <div style="background-color: #fef9f6; border-left: 4px solid #f28d77; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 0 8px 8px 0;">
+                    <strong style="display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: #d9534f;">Teacher Insight</strong>
+                    <h3 style="margin: 0 0 0.5rem 0; font-family: var(--serif);">Why Dance is a Vital Classroom Tool</h3>
+                    <p style="margin: 0; font-size: 15px; line-height: 1.6;">
+                        Dance is a powerful "classroom hack" for social and emotional learning. It helps students 
+                        <strong>manage big emotions</strong>, promotes <strong>pro-social behavior</strong> like cooperation, 
+                        and provides a <strong>structured channel for energy</strong> that can help students with ADHD 
+                        improve focus and readiness to learn.
+                    </p>
+                </div>
+
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000;">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                        src="https://www.youtube.com/embed/zfsvqYPdg84" 
+                        title="Why Dance Matters in the Classroom" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="callout rose">
+                <strong style="font-family: var(--serif); font-style: italic;">Try this ↓</strong> <br><b>The 60-Second Improvisation Circle.</b>
+                Students stand in a circle. One enters, performs a movement (e.g. low crawl = Space: Level), exits.
+                The next mimics and adds a variation (BIG low crawl = Dimension). Zero choreography needed.
+            </div>
+
+            <h3 style="margin-top: 3rem;">Composing · Performing<br><span class="italic-accent">· Appreciating.</span></h3>
+            <p style="max-width: 700px; margin-bottom: 2rem;">
+                The NSW Creative Arts K–6 Syllabus (NESA, 2024) organises Dance across three interrelated outcomes:
+            </p>
+
+            <div class="card-grid">
+                <div class="card h-130 bg-coral rotate-n1">
+                    <div class="card-accent bg-coral" style="background: rgba(255,255,255,0.3);"></div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 28px;">COMPOSING</h4>
+                    <p style="font-size: 12px; font-style: italic; opacity: 0.9;">Students as choreographers.</p>
+                    <p style="font-size: 14px; margin-top: 1rem;">Create and sequence movement to express ideas.</p>
+                </div>
+
+                <div class="card h-170 bg-sun rotate-p1">
+                    <div class="card-accent bg-sun" style="background: rgba(0,0,0,0.1);"></div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 28px;">PERFORMING</h4>
+                    <p style="font-size: 12px; font-style: italic; opacity: 0.8;">Confidence, not perfection!</p>
+                    <p style="font-size: 14px; margin-top: 1rem;">Communicate ideas through the body, developing quality.</p>
+                </div>
+
+                <div class="card h-140 bg-teal rotate-n2">
+                    <div class="card-accent bg-teal" style="background: rgba(255,255,255,0.3);"></div>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 28px;">APPRECIATING</h4>
+                    <p style="font-size: 12px; font-style: italic; opacity: 0.9;">Easiest entry point.</p>
+                    <p style="font-size: 14px; margin-top: 1rem;">Reflect on own work and others', including cultural traditions.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Quiz -->
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <span class="dlo-tag sun">DLO 3 · Interactive Quiz</span>
+                    <h3>Syllabus Match-Up.</h3>
+                    <p style="font-size: 14px; margin-top: 0.5rem;">Match each scenario to the correct NSW Syllabus outcome</p>
+                </div>
+                <div id="quiz-content">
+                    <div class="quiz-progress">QUESTION <span id="current-question">1</span> OF 6</div>
+                    <div class="quiz-question">
+                        <p id="question-text"></p>
+                    </div>
+                    <div class="quiz-options" id="quiz-options"></div>
+                    <div id="quiz-feedback"></div>
+                    <div class="quiz-controls">
+                        <button class="quiz-btn quiz-btn-prev" id="prev-btn" onclick="prevQuestion()">← Previous</button>
+                        <button class="quiz-btn quiz-btn-restart" onclick="resetQuiz()">↻ Restart</button>
+                        <button class="quiz-btn quiz-btn-next" id="next-btn" onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+                <div id="quiz-complete" class="quiz-complete" style="display: none;">
+                    <h3>Complete!</h3>
+                    <div class="quiz-score"><span id="final-score">0</span>/6</div>
+                    <p>Great work building your syllabus knowledge</p>
+                    <button class="btn btn-primary" onclick="resetQuiz()">Try Again</button>
+                </div>
+            </div>
+
+            <!-- Cross-curricular -->
+            <span class="caption" style="margin-top: 3rem; text-align: center;">Lets move out of the silo</span>
+            <div style="display: text-align: center; gap: 8px; margin: 1rem 0; flex-wrap: wrap;">
+                <div class="bg-ink" style="padding: 6px 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px;">× CROSS-CURRICULUM LINKS x</div>
+                
+            </div>
+
+            <div class="card-grid" style="margin-top: 2rem;">
+                <div class="card">
+                    <h4 style="color: var(--coral); margin-bottom: 0.5rem;">Mathematics</h4>
+                    <p style="font-size: 14px;">Create sequences using AB, ABA, or ABACA patterns</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--teal); margin-bottom: 0.5rem;">English</h4>
+                    <p style="font-size: 14px;">Choreograph movement representing story characters</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--sun); margin-bottom: 0.5rem;">PDHPE</h4>
+                    <p style="font-size: 14px;">Develop gross motor skills through locomotor movements</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--lilac); margin-bottom: 0.5rem;">HSIE</h4>
+                    <p style="font-size: 14px;">Explore dance connections to cultural identity</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--mint); margin-bottom: 0.5rem;">Science</h4>
+                    <p style="font-size: 14px;">Demonstrate life cycles or forces through movement</p>
+                </div>
+            </div>
+
+            <!-- ABC iView -->
+            <div style="margin: 3rem 0; text-align: center;">
+                <a href="https://iview.abc.net.au/show/play-school-dance-it-out" target="_blank" class="btn btn-secondary">Watch: Play School Dance It Out (ABC iView) →</a>
+                <p style="font-size: 13px; margin-top: 1rem; color: #999;">High-quality resource for observing age-appropriate teaching</p>
+            </div>
+
+            <!-- Kobe Bryant -->
+            <h3 style="margin-top: 3rem;">Dance for <span class="italic-accent">all learners.</span></h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/_KNZ1_UC-jw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="font-size: 13px; margin-top: 1rem; text-align: center; color: #666;">Elite athletes like the late Kobe Bryant used dance for coordination and performance. A powerful piece of perspective that could be useful for reluctant learners</p>
+        </section>
+
+        <!-- RESEARCH SECTION -->
+        <section id="research">
+            <figure style="margin: 0 0 3rem 0;">
+    <div style="
+        width: 100%; 
+        aspect-ratio: 16 / 9; 
+        overflow: hidden; 
+        border-radius: 8px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+    ">
+        <img 
+            src="https://www.idsaustralia.com/media/wysiwyg/IMG_8206.JPG" 
+            alt="Teachers participating in professional learning" 
+            style="
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover; 
+                object-position: center;
+            "
+        >
+    </div>
+    <figcaption style="margin-top: 0.75rem; font-size: 0.6rem; color: #555; font-style: italic; text-align: center;">
+        Teaching in a professional learning context. Image source: 
+        <a href="https://www.idsaustralia.com/" target="_blank" style="color: #0073e6; text-decoration: none;">
+            IDS Australia
+        </a>
+    </figcaption>
+</figure>
+
+            <span class="caption">03 · research</span>
+            <h2>The <span class="italic-accent">why.</span></h2>
+
+            <p style="margin-bottom: 1.5rem;">Teacher anxiety about teaching dance is well documented in the literature, with many preservice and practising teachers feeling underprepared due to limited prior experience or subject-specific knowledge. Research consistently shows that confidence and competence in dance education improve when preservice teachers receive strong theoretical preparation alongside practical, hands-on experience during their initial teacher education (ITE) programmes (<a href="#ref-hennessy" style="color: var(--teal);">Hennessy et al., 2001</a>; <a href="#ref-rolfe" style="color: var(--teal);">Rolfe, 2001</a>).</p>
+
+            <p style="margin-bottom: 1.5rem;">Teacher anxiety surrounding the delivery of dance education is recognised as a global issue; however, it is not insurmountable. Many preservice primary teachers enter ITE programmes with limited background in dance and low confidence in their ability to teach it. <a href="#ref-russell" style="color: var(--teal);">Russell-Bowie (2013)</a> conducted a cross-national study of primary preservice teachers across five countries and identified an urgent need for ITE programmes to increase both competence and confidence in dance education. Across multiple studies, a clear trend emerges: preservice teacher confidence grows when high-quality theoretical preparation is combined with meaningful practical experience in school settings.</p>
+
+            <p style="margin-bottom: 1.5rem;"><a href="#ref-hennessy" style="color: var(--teal);">Hennessy et al. (2001)</a> and <a href="#ref-rolfe" style="color: var(--teal);">Rolfe (2001)</a> both point to the importance of strong professional experience placements, where preservice teachers can observe effective teaching practice and receive constructive feedback from supervising teachers. These experiences help normalise dance as part of the primary curriculum and chip away at the perception that specialist expertise is required to deliver it effectively. Although much of this foundational research is older, it continues to be widely cited because contemporary empirical work on teacher confidence in dance remains limited, though recent studies have begun to fill that gap.</p>
+
+            <p style="margin-bottom: 1.5rem;">A systematic review by <a href="#ref-shen" style="color: var(--teal);">Shen et al. (2026)</a> underlines how central teacher capability and ongoing pedagogical support are to improving outcomes in dance education. The review identified several practical strategies for building confidence and competence, including: developing sufficient subject-matter knowledge, building positive relationships with students, identifying individual student needs, selecting appropriate teaching methods, guiding students effectively, and establishing a supportive classroom environment. The authors found that confidence develops when teachers feel equipped with both content knowledge and the tools to teach dance safely and with clear purpose, rather than simply being familiar with the art form.</p>
+
+            <p style="margin-bottom: 1.5rem;">Within the NSW context, the <a href="#ref-nesa" style="color: var(--teal);">Creative Arts K–6 Syllabus (NESA, 2024)</a> positions Dance as one of four mandatory art forms, requiring generalist primary teachers to plan and deliver learning experiences across Composing, Performing, and Appreciating. These expectations place real responsibility on teachers, many of whom report limited prior experience or confidence in dance. When teachers feel underprepared, their capacity to meet syllabus requirements suffers. When they receive adequate preparation and support, through both ITE programmes and ongoing professional learning, they are better placed to teach dance with confidence and a clear sense of purpose.</p>
+
+            <p style="margin-bottom: 1.5rem;">Accessible professional learning resources can also support practising teachers in building confidence outside of formal ITE contexts. <a href="https://education.nsw.gov.au/teach-nsw/explore-teaching/find-teaching-resources/teach-nsw-podcast/series-2/episode-15" target="_blank" rel="noopener" style="color: var(--teal);">The Teach NSW Podcast (Season 2, Episode 15)</a> features Marianne, an experienced arts educator and Chief Education Officer at The Arts Unit, who argues for building 'arts confidence' rather than focusing on technical 'arts skills,' encouraging teachers who feel unsure to step outside their comfort zone and simply try. Resources like this reinforce a key finding across the literature: building teacher confidence in dance does not require specialist expertise. It starts with a willingness to have a go.</p>
+
+            <div class="bg-cream2" style="padding: 2rem; border-left: 4px solid var(--teal); margin: 2rem 0;">
+                <h4 style="margin-bottom: 1rem;">Key takeaways: What teachers need</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 1rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--teal); font-weight: 700;">✓</span>
+                        <strong>Clear subject knowledge (the Elements)</strong><br>
+                        <span style="font-size: 14px; color: #666;">Understanding Space, Time, Dynamics removes the mystery from dance teaching</span>
+                    </li>
+                    <li style="margin: 1rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--teal); font-weight: 700;">✓</span>
+                        <strong>Practical strategies (not perfection)</strong><br>
+                        <span style="font-size: 14px; color: #666;">Focus on improvisation circles, mirroring, scaffolded sequences vs polished choreography</span>
+                    </li>
+                    <li style="margin: 1rem 0; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--teal); font-weight: 700;">✓</span>
+                        <strong>Supportive resources (like this DLP)</strong><br>
+                        <span style="font-size: 14px; color: #666;">Access to ready-made materials and evidence-based approaches builds capability</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- INCLUSION SECTION -->
+        <section id="inclusion">
+            
+
+            <span class="caption">04 · every learner</span>
+            <h2>The inclusive<br><span class="italic-accent">dance floor.</span></h2>
+
+            <p style="max-width: 700px; margin-bottom: 2rem; font-size: 17px;">
+                Every student can dance. Focus on what they <em>can</em> do. "High-energy" can become <b>"Explosive Dynamics".</b>
+                Careful observers lead to proficient <b>Appreciators</b>.
+            </p>
+            
+            <!-- Beginners Guide to Inclusive Dance -->
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/83OBY44_zJI?si=VDX4A-spsxOSIsUx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p style="font-size: 13px; margin-top: 1rem; text-align: center; color: #666;">Beginners' Guide to Inclusive Dance Teaching 
+Presented by Holland Dance Festival and Stopgap Dance Company 
+</p>
+        
+
+            <!-- EAL/D -->
+            <div class="subsection">
+                <h4>EAL/D Learners</h4>
+                <p>For students learning English as an Additional Language or Dialect (EAL/D), two key approaches support participation in dance: multimodal representation and explicit vocabulary instruction through scaffolding and modelling. <a href="#ref-acara" style="color: var(--teal);">The Australian Curriculum, Assessment and Reporting Authority (ACARA, 2011)</a> notes that multimodal representations are vital for EAL/D learners to make sense of learning tasks. In dance, visual dance action cards can communicate movement concepts without relying on language alone. <a href="#ref-nsw-doe-eald" style="color: var(--teal);">The NSW Department of Education (2026)</a> also highlights scaffolding and modelling as essential strategies for EAL/D students, including breaking dance sequences into smaller steps and using explicit instruction and repetition to build understanding and confidence progressively.</p>
+                <div style="margin-top: 1.5rem;">
+                    <h5 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; color: var(--coral);">
+    <a href="https://www.twinkl.com.au/resource/cfe-pe-48-cfe-first-level-dance-steps-flashcards" target="_blank" rel="noopener" style="color: inherit;">
+        Example Resource: Dance Steps Flashcards
+    </a>
+</h5>
+                  
+                </div>
+            </div>
+
+            <!-- Physical/Cognitive/Social/Emotional -->
+            <div class="subsection">
+                <h4>Students with Physical, Cognitive, Social, and Emotional Considerations</h4>
+                <p>Universal Design for Learning (UDL) offers a practical framework for making dance accessible to all students. <a href="#ref-almeqdad" style="color: var(--teal);">Almeqdad et al. (2023)</a> found that UDL supports teachers in reducing barriers through flexible and differentiated curriculum design. <a href="#ref-aero" style="color: var(--teal);">The Australian Education Research Organisation (AERO, 2024)</a> describes reasonable adjustments as measures that help students with disability access and take part in learning. In dance, these might include simplified or adapted movements, tasks broken into smaller steps, and mirroring or modelling to give students a low-risk way into the activity. These approaches help build confidence, participation, and a sense of belonging across the class.</p>
+                <div style="margin-top: 1.5rem;">
+                <h5 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; color: var(--coral, #FF7F50);">
+    <a href="https://youtu.be/KQx0p_ADVyg?si=pypYqp4nPPNDhAhN" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
+        Video Tutorial: 📹 Seated Na Na Dance (Hip Hop)
+    </a>
+</h5>
+                </div>
+            </div>
+
+            <!-- High-Potential -->
+            <div class="subsection">
+                <h4>High-Potential and Gifted Students</h4>
+                <p><a href="#ref-nsw-doe-hpge" style="color: var(--teal);">The NSW Department of Education (2025)</a> points to differentiation, flexible grouping, enrichment, and acceleration as the main strategies for supporting high-potential and gifted students. In dance, these students tend to thrive when given complex, open-ended choreographic tasks that give them more ownership over their learning and push them further across Composing, Performing, and Appreciating <a href="#ref-nesa" style="color: var(--teal);">(NESA, 2024)</a>. Access to expert support through extension opportunities and extracurricular programmes aligned with syllabus outcomes provides more advanced learning pathways, keeping gifted students challenged and progressing.</p>
+                <div style="margin-top: 1.5rem;">
+                    <h5 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; color: var(--coral, #FF7F50);">
+    <a href="https://www.acer.org/in/pat/pat-insights/episode-2-of-field-notes-supporting-gifted-talented-students" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
+        Expert Insight: 🎙️ Supporting Gifted & Talented Students
+    </a>
+</h5>
+                        
+                </div>
+            </div>
+
+            <!-- Reluctant Learners -->
+            <div class="subsection">
+                <h4>Reluctant Learners</h4>
+                <p>Reluctant learners in dance (students who are disengaged, unmotivated, or anxious about taking part) tend to respond well to a mix of student choice and scaffolded entry points. Letting students make decisions about music, movement style, and how they want to express their ideas taps into what they already enjoy and do well. <a href="#ref-nsw-doe-hpge" style="color: var(--teal);">The NSW Department of Education (2025)</a> notes that promoting student autonomy is a key lever for improving engagement. <a href="#ref-aero" style="color: var(--teal);">The Australian Education Research Organisation (AERO, 2024)</a> adds that scaffolding reduces unnecessary cognitive load, which in turn lifts motivation and helps students complete tasks.</p>
+                <div style="margin-top: 1.5rem;">
+                    <h5 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; color: var(--coral, #FF7F50);">
+    <a href="https://youtu.be/_KNZ1_UC-jw?si=I0MlgVvVPncHL912" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
+        Video: 📹 Kobe Bryant on the Alignment of Dance and Sport
+    </a>
+</h5>
+                </div>
+            </div>
+        </section>
+
+        <!-- CULTURE SECTION -->
+        <section id="culture">
+            <figure style="margin: 0 0 3rem 0; text-align: center;">
+    <img 
+        src="https://education.nsw.gov.au/content/dam/main-education/en/home/schooling/students/career-and-study-pathways/skills-at-school/school-delivered-vet/assistant-dance-teaching/image/Primary_school_students_in_hall_singing_dancing_with_female_teacher_-_Web_Optimized_Image.jpeg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg" 
+        alt="Primary school students in hall singing and dancing with a female teacher" 
+        style="width: 100%; max-width: 1280px; height: auto; display: block; border-radius: 8px;"
+    >
+    <figcaption style="margin-top: 0.75rem; font-size: 0.6rem; color: #555; font-style: italic;">
+        Cultural dance and respectful engagement. Image source: 
+        <a href="https://education.nsw.gov.au/" target="_blank" style="color: #0073e6; text-decoration: none;">
+            NSW Department of Education
+        </a>
+    </figcaption>
+</figure>
+
+            <span class="caption">05 · culture & connection</span>
+            <h2>Consultation,<br><span class="italic-accent">not imitation.</span></h2>
+
+            <p style="max-width: 700px; margin-bottom: 2rem; font-size: 17px;">
+                A significant source of teacher anxiety is the fear of "getting it wrong" when teaching Aboriginal, Torres Strait Islander, or other cultural dances. The key is <strong>Consultation.</strong>.
+            </p>
+
+           <div class="video-container" style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/oXuqvOJhURM" title="Aboriginal and Torres Strait Islander People in the Classroom" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<p style="font-size: 13px; margin-top: 1rem; text-align: center; color: #666;">
+    <strong>Aboriginal and Torres Strait Islander People in the Classroom</strong><br>
+    Presented by Reconciliation Australia: A guide to authentic engagement and diverse First Nations perspectives in education.
+</p>
+<br>
+<br>
+
+            <h3 style="margin-bottom: 1.5rem;">Practical Steps</h3>
+            <div class="step-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h5>AECG Consultation</h5>
+                    <p style="font-size: 14px;">Reach out to your local <a href="hhttps://www.aecg.nsw.edu.au/about" target="_blank" style="color: #007bff; text-decoration: underline;">Aboriginal Education Consultative Group.</a> They can connect you with local Elders or dance groups who can visit the school.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h5>Focus on Appreciating</h5>
+                    <p style="font-size: 14px;">If you cannot have a guest, use high-quality digital resources like Narragunnawali. Watch performances and ask students to observe the connection between movement and the environment.</p>
+                </div>
+
+               <div class="step-card">
+    <div class="step-number">03</div>
+    <h5>Identify Language Groups</h5>
+    <p style="font-size: 14px;">
+        Always identify the specific language group of the dance you are studying. 
+        Use the <a href="https://aiatsis.gov.au/austlang/search" target="_blank" style="color: #007bff; text-decoration: underline;">Austlang database</a> 
+        to research specific groups. This teaches students that Aboriginal culture is diverse and localised, not monolithic.
+    </p>
+</div>
+
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h5>Cross-Curricular Integration</h5>
+                    <p style="font-size: 14px;">Use dance to explore history (HSIE) and storytelling (English), ensuring that cultural dance is seen as a living, breathing form of communication.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Safe and Respectful Resources</h3>
+<div class="resource-grid">
+    <div class="resource-card">
+        <h5>AIATSIS</h5>
+        <a href="https://aiatsis.gov.au/" target="_blank">AIATSIS Guide →</a>
+        <p style="font-size: 13px; margin-top: 0.5rem; color: #666;">Protocols and research for Indigenous cultural and intellectual property.</p>
+    </div>
+
+    <div class="resource-card">
+        <h5>Narragunnawali</h5>
+        <a href="https://www.narragunnawali.org.au/curriculum-resources?search=&subject%5B%5D=8&year%5B%5D=2&searchType=CR" target="_blank">Curriculum Resources →</a>
+        <p style="font-size: 13px; margin-top: 0.5rem; color: #666;">High-quality materials for embedding Aboriginal perspectives into the curriculum.</p>
+    </div>
+
+    <div class="resource-card">
+        <h5>Bangarra Dance Company</h5>
+        <a href="https://www.bangarra.com.au/youth-education/education-resources/classroom-resources/moth-2003/" target="_blank">Resource: Moth (2003) →</a>
+        <p style="font-size: 13px; margin-top: 0.5rem; color: #666;">Classroom resources focused on the contemporary dance work 'Moth'.</p>
+    </div>
+
+    <div class="resource-card">
+        <h5>Djalgala</h5>
+        <a href="https://www.djalgala.com.au/primary-schools" target="_blank">Immersive Programs →</a>
+        <p style="font-size: 13px; margin-top: 0.5rem; color: #666;">Tailored primary school programs connecting students with First Nations culture.</p>
+    </div>
+</div>
+        </section>
+
+        <!-- REFERENCES SECTION -->
+        <section id="references">
+            
+            <span class="caption">06 · we have the evidence</span>
+            <h2>References</h2>
+
+            <p style="margin-bottom: 2rem;">
+                This Digital Learning Package is grounded in contemporary research and aligned with the NSW Creative Arts K–6 Syllabus (2024). All strategies and content are evidence-based.
+            </p>
+
+            <div class="references">
+                <div class="reference-item" id="ref-almeqdad">
+                    Almeqdad, Q., Alodat, A., Alquraan, M., Mohaidat, M., & Al-Makhzoomy, A. (2023). The effectiveness of universal design for learning: A systematic review of the literature and meta-analysis. <em>Cogent Education, 10</em>(1), Article 2218191. <a href="https://doi.org/10.1080/2331186X.2023.2218191" target="_blank">https://doi.org/10.1080/2331186X.2023.2218191</a>
+                </div>
+
+                <div class="reference-item" id="ref-acara">
+                    Australian Curriculum, Assessment and Reporting Authority. (2011). <em>English as an additional language or dialect: Teacher resource</em>. <a href="https://docs.acara.edu.au/resources/EALD_Resource_-_EALD_Learning_Progression.pdf" target="_blank">https://docs.acara.edu.au/resources/EALD_Resource_-_EALD_Learning_Progression.pdf</a>
+                </div>
+
+                <div class="reference-item" id="ref-aero">
+                    Australian Education Research Organisation. (2024). <em>Scaffold practice</em>. <a href="https://www.edresearch.edu.au/sites/default/files/2024-11/AERO-practice-guide-scaffold-practice-aa.pdf" target="_blank">https://www.edresearch.edu.au/sites/default/files/2024-11/AERO-practice-guide-scaffold-practice-aa.pdf</a>
+                </div>
+
+                <div class="reference-item" id="ref-hennessy">
+                    Hennessy, S., Rolfe, L., & Chedzoy, S. (2001). The factors which influence student teachers' confidence to teach the arts in the primary classroom. <em>Research in Dance Education, 2</em>(1), 53–71. <a href="https://doi.org/10.1080/14647890123720" target="_blank">https://doi.org/10.1080/14647890123720</a>
+                </div>
+
+                <div class="reference-item" id="ref-nsw-doe-hpge">
+                    NSW Department of Education. (2025). <em>High potential and gifted education</em>. <a href="https://education.nsw.gov.au/teaching-and-learning/high-potential-and-gifted-education/supporting-educators/implement" target="_blank">https://education.nsw.gov.au/teaching-and-learning/high-potential-and-gifted-education/supporting-educators/implement</a>
+                </div>
+
+                <div class="reference-item" id="ref-nsw-doe-eald">
+                    NSW Department of Education. (2026). <em>English as an additional language or dialect: Teaching and learning</em>. <a href="https://education.nsw.gov.au/teaching-and-learning/multicultural-education/english-as-an-additional-language-or-dialect/teaching-and-learning" target="_blank">https://education.nsw.gov.au/teaching-and-learning/multicultural-education/english-as-an-additional-language-or-dialect/teaching-and-learning</a>
+                </div>
+
+                <div class="reference-item" id="ref-nesa">
+                    NSW Education Standards Authority. (2024). <em>Creative Arts K–6 Syllabus</em>. <a href="https://curriculum.nsw.edu.au/learning-areas/creative-arts/creative-arts-k-6-2024/overview" target="_blank">https://curriculum.nsw.edu.au/learning-areas/creative-arts/creative-arts-k-6-2024/overview</a>
+                </div>
+
+                <div class="reference-item" id="ref-rolfe">
+                    Rolfe, L. (2001). The factors which influence primary student teachers' confidence to teach dance. <em>European Physical Education Review, 7</em>(2), 157–175. <a href="https://doi.org/10.1177/1356336x010072004" target="_blank">https://doi.org/10.1177/1356336x010072004</a>
+                </div>
+
+                <div class="reference-item" id="ref-russell">
+                    Russell-Bowie, D. E. (2013). What? Me? Teach dance? Background and confidence of primary preservice teachers in dance education across five countries. <em>Research in Dance Education, 14</em>(3), 216–232. <a href="https://doi.org/10.1080/14647893.2012.722614" target="_blank">https://doi.org/10.1080/14647893.2012.722614</a>
+                </div>
+
+                <div class="reference-item" id="ref-shen">
+                    Shen, Q., Bailey, R. P., Pickard, A., Judge, S., & Samsudin, N. (2026). Dance teachers' competency in school education: A narrative systematic review. <em>Research in Dance Education</em>, 1–22. <a href="https://doi.org/10.1080/14647893.2025.2610936" target="_blank">https://doi.org/10.1080/14647893.2025.2610936</a>
+                </div>
+
+                <div class="reference-item" id="ref-tao">
+                    Tao, D., Gao, Y., Cole, A., Baker, J. S., Gu, Y., Supriya, R., Tong, T. K., Hu, Q., & Awan-Scully, R. (2022). The physiological and psychological benefits of dance and its effects on children and adolescents: A systematic review. <em>Frontiers in Physiology, 13</em>, 925958. <a href="https://doi.org/10.3389/fphys.2022.925958" target="_blank">https://doi.org/10.3389/fphys.2022.925958</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>STEP INTO DANCE · STAGE 2 NSW DLP</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">Created for EDUC6745 | University of Newcastle | 2026</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Update active nav
+                    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Accordion
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Quiz - Complete with user controls
+        const quizQuestions = [
+            {
+                question: "Students create a movement sequence inspired by a photograph",
+                correctAnswer: "Composing",
+                feedback: "Creating and sequencing movement is part of the Composing outcome."
+            },
+            {
+                question: "Students present their dance to the class",
+                correctAnswer: "Performing",
+                feedback: "Presenting and communicating through movement is Performing."
+            },
+            {
+                question: "Students watch a cultural dance video and discuss the use of space",
+                correctAnswer: "Appreciating",
+                feedback: "Watching, reflecting, and discussing dance is part of Appreciating."
+            },
+            {
+                question: "Students work in pairs, mirroring each other's movements",
+                correctAnswer: "Composing",
+                feedback: "This can be either Composing or Performing! Mirroring explores relationships. Well done!"
+            },
+            {
+                question: "Students refine their movement quality through rehearsal",
+                correctAnswer: "Performing",
+                feedback: "Developing movement quality and competence is Performing."
+            },
+            {
+                question: "Students reflect in journals about how their choreography expressed emotion",
+                correctAnswer: "Appreciating",
+                feedback: "Self-reflection about dance experiences is Appreciating."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizQuestions.length).fill(null);
+        const options = ["Composing", "Performing", "Appreciating"];
+
+        function loadQuestion() {
+            if (currentQuestion >= quizQuestions.length) return;
+
+            const question = quizQuestions[currentQuestion];
+            document.getElementById('current-question').textContent = currentQuestion + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            options.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option;
+                
+                if (userAnswers[currentQuestion] === option) {
+                    optionDiv.classList.add('selected');
+                    if (option === question.correctAnswer) {
+                        optionDiv.classList.add('correct');
+                    } else {
+                        optionDiv.classList.add('incorrect');
+                    }
+                }
+                
+                optionDiv.onclick = () => selectAnswer(option, optionDiv);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            if (userAnswers[currentQuestion]) {
+                feedbackDiv.className = 'quiz-feedback ' + (userAnswers[currentQuestion] === question.correctAnswer ? 'correct' : 'incorrect');
+                feedbackDiv.textContent = question.feedback;
+            } else {
+                feedbackDiv.innerHTML = '';
+            }
+
+            updateButtons();
+        }
+
+        function selectAnswer(selected, element) {
+            if (userAnswers[currentQuestion] !== null) return;
+
+            const question = quizQuestions[currentQuestion];
+            const allOptions = document.querySelectorAll('.quiz-option');
+            
+            allOptions.forEach(opt => {
+                opt.onclick = null;
+                if (opt.textContent === question.correctAnswer) {
+                    opt.classList.add('correct');
+                } else if (opt === element) {
+                    opt.classList.add(selected === question.correctAnswer ? 'correct' : 'incorrect');
+                }
+            });
+
+            userAnswers[currentQuestion] = selected;
+
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            feedbackDiv.className = 'quiz-feedback ' + (selected === question.correctAnswer ? 'correct' : 'incorrect');
+            feedbackDiv.textContent = question.feedback;
+
+            if (selected === question.correctAnswer) {
+                score++;
+                document.querySelector('.quiz-container').classList.add('celebrating');
+                setTimeout(() => {
+                    document.querySelector('.quiz-container').classList.remove('celebrating');
+                }, 600);
+            }
+
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = userAnswers[currentQuestion] === null;
+            
+            if (currentQuestion === quizQuestions.length - 1) {
+                nextBtn.textContent = 'View Results →';
+            } else {
+                nextBtn.textContent = 'Next →';
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-content').style.display = 'none';
+            document.getElementById('quiz-complete').style.display = 'block';
+            document.getElementById('final-score').textContent = score;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizQuestions.length).fill(null);
+            document.getElementById('quiz-content').style.display = 'block';
+            document.getElementById('quiz-complete').style.display = 'none';
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
